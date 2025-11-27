@@ -40,4 +40,9 @@ public class AuthService {
         }
         return user;
     }
+    
+    public UserResponse getCurrentUserResponse(HttpSession session) {
+        User user = getCurrentUser(session);
+        return userMapper.toResponse(user);
+    }
 }
