@@ -7,6 +7,7 @@ import com.ayadi.smartshop.enums.UserRole;
 import com.ayadi.smartshop.exception.UnauthorizedException;
 import com.ayadi.smartshop.mapper.UserMapper;
 import com.ayadi.smartshop.repository.UserRepository;
+import com.ayadi.smartshop.service.impl.AuthServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,7 +35,7 @@ class AuthServiceTest {
     private HttpSession session;
 
     @InjectMocks
-    private AuthService authService;
+    private AuthServiceImpl authService;
 
     private User testUser;
     private LoginRequest loginRequest;

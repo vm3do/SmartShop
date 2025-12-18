@@ -23,4 +23,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     
     @Query("SELECT COALESCE(SUM(o.totalAmount), 0) FROM Order o WHERE o.client.id = :clientId AND o.status = :status")
     BigDecimal sumTotalByClientIdAndStatus(Long clientId, OrderStatus status);
+
+    @Query("SELECT o FROM Order o WHERE o.client.id = :clientId AND o.status = :status")
+    List<Order> findOrderByClientId(Long clientId, OrderStatus status, Pageable pageable);
 }
